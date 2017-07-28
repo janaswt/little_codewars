@@ -88,3 +88,21 @@ function minMaxKeyInObject(obj)
  return [Number(minKey), Number(maxKey)]
 }
 minMaxKeyInObject({2:'a', 7:'b', 1:'c',10:'d',4:'e'})
+
+
+// 38
+function generatePairs(n)
+{
+  var i =0; var j=0 var result=[]
+  while(i <=n)
+  {
+    j=0
+    while(j <=n && j+i <=n){ 
+    result.push([i,j+i])
+    j+=1
+    }
+    i+=1
+  }
+  return result
+}
+generatePairs(3)
