@@ -58,3 +58,10 @@ function solution(number){
       .reduce((a, e, i) => ( (i + 1) % 5 && (i + 1) % 3)? a: a+i+1, 0):
       0;
 }
+
+// find parity outlier
+function findOutlier(int){
+  var even = int.filter(a=>a%2==0);
+  var odd = int.filter(a=>a%2!==0);
+  return even.length==1? even[0] : odd[0];
+}
