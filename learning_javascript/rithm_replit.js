@@ -1,6 +1,5 @@
-// #1
-function appendToString(str, chars)
-{
+// #1 
+function appendToString(str, chars){
   var newStr =str+chars
   return newStr
 }
@@ -8,13 +7,93 @@ function appendToString(str, chars)
 appendToString("Hello", " World!")
 
 // #2
-function prependToString(str, chars)
-{
+function prependToString(str, chars){
  let newStr 
  newStr=chars+str
  return newStr 
 }
 prependToString('awesome','very')
+
+// #3
+function charAt(str, number)
+{
+if (number <= str.length) return str[number]
+else return ""
+}
+charAt('awesome',2)
+
+// #4 Write a function called stringIncludes, which accepts a string and a character. 
+//The function should return true if the string includes that character, otherwise it should return false.
+function stringIncludes(string, char){
+  if( string.indexOf(char) !== -1)
+  return true
+  else return false
+  }
+stringIncludes('awesome', 'z')
+
+function stringIncludes1(str, char){
+  for(var i = 0; i < str.length; i++){
+    if(str[i] === char) return true;
+  }
+  return false;
+}
+
+// #5 Write a function called stringIndexOf, which accepts a string and a character.
+The function should return the first index at which the character exists or -1 if the character is not found.
+
+function stringIndexOf(string, c)
+{
+  for (var i=0; i<string.length; i++)
+  {
+  if (string[i]=== c) return i
+  }
+  return -1
+}
+stringIndexOf('awesome','e')
+
+// #6 Write a function called repeat, 
+//which accepts a string and a number and returns a new string with the string repeated the number of times.
+function repeat(str, n){
+  ans = ""
+  while(n>0){
+    ans += str
+    n-=1
+  }
+  return ans
+}
+
+// #23 Write a function called swapKeyAndValue,
+//which accepts an object and a key. The function should return a new object with the key and value flipped. 
+function swapKeyAndValue(obj, key){
+  var newObj ={}
+for (var k in obj){
+  if(k === key){
+    newObj[obj[key]]= key
+  }
+  else{
+    newObj[k]=obj[k]
+  }
+}
+return newObj
+}
+var instructor = {name: "Elie", job: "Instructor"}
+swapKeyAndValue(instructor, 'name')
+
+// following code swaps ALL key value pairs 
+// http://nelsonwells.net/2011/10/swap-object-key-and-values-in-javascript/
+var invert = function (obj) {
+
+  var new_obj = {};
+
+  for (var prop in obj) {
+    if(obj.hasOwnProperty(prop)) {
+      new_obj[obj[prop]] = prop;
+    }
+  }
+
+  return new_obj;
+};
+
 // 30 "Problem Solving 1"
 function squareEvenNumbers(arr)
 {
@@ -28,6 +107,8 @@ function squareEvenNumbers(arr)
   }
   return sum
 }
+
+
 squareEvenNumbers([1,2,3,4,5])
 // 31
 function multiples(a, b)
@@ -106,3 +187,31 @@ function generatePairs(n)
   return result
 }
 generatePairs(3)
+
+// 41 Given an array of strings, write a function that counts the total number of upper case characters.
+function totalCaps(arrOfStr){
+  var count =0
+  for(var i in arrOfStr){
+    for(var j in arrOfStr[i]){
+      if (arrOfStr[i][j]=== arrOfStr[i][j].toUpperCase())
+      {
+        count +=1 
+      }
+    }
+  }
+  return count
+}
+totalCaps(["Elie", "Matt", "Tim"]) // returns 3
+
+
+function totalCaps(arr){
+  var count = 0;
+  for(var i = 0; i < arr.length; i++){
+    for(var j = 0; j < arr[i].length; j++){
+      if(arr[i].charCodeAt(j) >= 65 && arr[i].charCodeAt(j) <= 90){
+        count++
+      }
+    }
+  }
+  return count;
+}
